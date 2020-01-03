@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     p7zip-full \
     tree \
     apache2 \
-    nginx \
+    nginx 
 
 # set python env
 ENV PYTHONPATH /usr/local/python:$PYTHONPATH
