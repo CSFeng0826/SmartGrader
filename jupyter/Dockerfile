@@ -10,6 +10,7 @@ RUN apt update && \
     export COUNTRY=$(curl ipinfo.io | jq '.country' | tr -d '"') && \
     sed -i "s|http:\/\/security|http:\/\/$COUNTRY.archive|g" /etc/apt/sources.list && \
     sed -i "s|http:\/\/archive|http:\/\/$COUNTRY.archive|g" /etc/apt/sources.list
+#"
 
 FROM ubuntu:16.04
 
@@ -28,6 +29,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-dev \
     pkg-config \
+    libpng-dev \
+    libzmq3-dev \
+    libpq-dev \
     rsync \
     curl \
     wget \
