@@ -44,7 +44,7 @@ user_data = os.environ.get('JUPYTERHUB_USER_DATA','/opt/jupyterhub-user-data')
 c.JupyterHub.spawner_class = DockerSpawner
 
 # Spawn containers from this image
-c.DockerSpawner.image = os.environ.get('JUPYTERHUB_LOCAL_NOTEBOOK_IMAGE', "jupyter:latest")
+c.DockerSpawner.image = os.environ.get('JUPYTERHUB_LOCAL_NOTEBOOK_IMAGE', "ahkui/jupyter:latest")
 
 # JupyterHub requires a single-user instance of the Notebook server, so we
 # default to using the `start-singleuser.sh` script included in the
@@ -106,6 +106,7 @@ c.JupyterHub.authenticator_class = 'oauthenticator.GitHubOAuthenticator'
 c.GitHubOAuthenticator.oauth_callback_url = os.environ['JUPYTERHUB_OAUTH_CALLBACK_URL']
 c.GitHubOAuthenticator.client_id = os.environ['JUPYTERHUB_OAUTH_CLIENT_ID']
 c.GitHubOAuthenticator.client_secret = os.environ['JUPYTERHUB_OAUTH_CLIENT_SECRET']
+
 
 # Persist hub data on volume mounted inside container
 data_dir = '/data'

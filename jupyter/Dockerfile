@@ -4,9 +4,7 @@ FROM alpine:3.8
 
 COPY --from=0 /etc/apt/sources.list /etc/apt/sources.list
 
-# set country
-RUN apt update && \
-    apk add --no-cache curl jq && \
+RUN apk add --no-cache curl jq && \
     export COUNTRY=$(curl ipinfo.io | jq '.country' | tr -d '"') && \
     sed -i "s|http:\/\/security|http:\/\/$COUNTRY.archive|g" /etc/apt/sources.list && \
     sed -i "s|http:\/\/archive|http:\/\/$COUNTRY.archive|g" /etc/apt/sources.list
@@ -14,11 +12,7 @@ RUN apt update && \
 
 FROM ubuntu:16.04
 
-USER root
-WORKDIR /root
-
-COPY --from=0 /etc/apt/sources.list /etc/apt/sources.list
-COPY --from=0 /etc/apt/sources.list.bak /etc/apt/sources.list.bak
+COPY --from=1 /etc/apt/sources.list /etc/apt/sources.list
 
 # install package
 RUN apt-get update && apt-get install -y --no-install-recommends \
