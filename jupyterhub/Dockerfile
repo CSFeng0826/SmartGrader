@@ -1,4 +1,4 @@
-FROM jupyter:latest
+FROM csfeng0826/jupyter:latest
 
 LABEL maintainer="CSFeng0826 <M0720775@mail.fcu.edu.tw>"
 

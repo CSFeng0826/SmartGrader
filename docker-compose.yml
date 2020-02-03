@@ -15,6 +15,12 @@ networks:
 #       name: proxy-network
 
 services:
+  jupyter:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    image: csfeng0826/jupyter:latest
+
   postgres:
     image: postgres
     volumes:
