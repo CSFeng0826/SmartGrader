@@ -44,7 +44,7 @@ user_data = os.environ.get('JUPYTERHUB_USER_DATA','/opt/jupyterhub-user-data')
 c.JupyterHub.spawner_class = DockerSpawner
 
 # Spawn containers from this image
-c.DockerSpawner.image = os.environ.get('JUPYTERHUB_LOCAL_NOTEBOOK_IMAGE', "ahkui/jupyter:latest")
+c.DockerSpawner.image = os.environ.get('JUPYTERHUB_LOCAL_NOTEBOOK_IMAGE', "csfeng0826/jupyter:latest")
 
 # JupyterHub requires a single-user instance of the Notebook server, so we
 # default to using the `start-singleuser.sh` script included in the
