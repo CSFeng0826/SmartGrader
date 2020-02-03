@@ -91,6 +91,7 @@ RUN python3 -m pip --no-cache-dir install \
     selenium \
     tornado==5.1.1 \
     jupyterhub \
+    nbgrader \
     && \
     python3 -m ipykernel.kernelspec
 

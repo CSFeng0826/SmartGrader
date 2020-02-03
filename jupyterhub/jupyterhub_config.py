@@ -38,7 +38,7 @@ from dockerspawner import DockerSpawner
 import json
 
 notebook_dir = '/root/notebooks'
-user_data = os.environ.get('JUPYTERHUB_USER_DATA','/opt/jupyterhub-user-data')
+user_data = os.environ.get('JUPYTERHUB_USER_DATA','user-data')
 
 # Spawn single-user servers as Docker containers
 c.JupyterHub.spawner_class = DockerSpawner
